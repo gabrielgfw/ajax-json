@@ -2,20 +2,23 @@
 <script>
 
     // Variável com informações não formatadas para JSON.
-    var jsonData = '{"_id":"575657561456","index":0,"age":27,"name":{"first":"teste","last":"testelast"}}';
+    var jsonData = '[{"_id":"5ed90bf4122129ad801119af","index":0,"age":40,"name":{"first":"Beatriz","last":"Noble"}},{"_id":"5ed90bffe20a1ed4fd55ae42","index":0,"age":24,"name":{"first":"Susanna","last":"Cardenas"}},{"_id":"5ed90c0595dc851c3a3bbc91","index":0,"age":35,"name":{"first":"Cash","last":"Stark"}},{"_id":"5ed90c0b01a23b1f89f22d5e","index":0,"age":29,"name":{"first":"Beck","last":"Merritt"}}]';
     console.log('json não formatado:');
     console.log(jsonData);
 
     // Variável convertida em objeto JSON.
     var jsonDataParse = JSON.parse(jsonData);
-    console.log('json formatado:');
-    console.log(jsonDataParse);   
+    var divEl = document.querySelector("#output");
 
-    // Manipulando as informações contidas no JSON.
-    jsonDataParse.name.first = "Gabriel";
-    jsonDataParse.name.last = "Felipe";
+    function cleanDiv(divId) {
+        divEl.innerHTML = "";
+    }
 
-    // Resgatando as informações.
-    document.querySelector('#output').innerHTML = "Nome: " + jsonDataParse.name.first + " " + jsonDataParse.name.last;
-    
+    cleanDiv("output");
+    // Resgatando as informações do array de JSON.
+    for(i = 0; i <= jsonDataParse.length; i ++) {
+                
+        outputEl.innerHTML += "Pessoa número #" + [i+1] + " - Nome: " + jsonDataParse[i].name.first + " " + jsonDataParse[i].name.last + "<br>";
+    };
+
 </script>
