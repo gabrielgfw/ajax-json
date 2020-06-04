@@ -1,0 +1,21 @@
+<div id="output" class="oput">...</div>
+<script>
+
+    // Variável com informações não formatadas para JSON.
+    var jsonData = '{"_id":"575657561456","index":0,"age":27,"name":{"first":"teste","last":"testelast"}}';
+    console.log('json não formatado:');
+    console.log(jsonData);
+
+    // Variável convertida em objeto JSON.
+    var jsonDataParse = JSON.parse(jsonData);
+    console.log('json formatado:');
+    console.log(jsonDataParse);   
+
+    // Manipulando as informações contidas no JSON.
+    jsonDataParse.name.first = "Gabriel";
+    jsonDataParse.name.last = "Felipe";
+
+    // Resgatando as informações.
+    document.querySelector('#output').innerHTML = "Nome: " + jsonDataParse.name.first + " " + jsonDataParse.name.last;
+    
+</script>
